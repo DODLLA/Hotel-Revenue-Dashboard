@@ -1,0 +1,18 @@
+HotelRevAI - AI-Driven Revenue Analysis for Hotels
+HotelRevAI is a Power BI-based analytics dashboard that transforms raw hotel booking data into actionable revenue insights. Built by Infosys Springboard Batch 13 Group 2 Team A, it analyzes 3 years of historical data to optimize RevPAR, ADR, and occupancy while reducing cancellations through AI-driven Key Influencers and predictive analytics. Features 5 interactive dashboards covering Revenue Performance, Customer Segmentation, Operational Efficiency, Cancellation Intelligence, and overall performance.
+
+📋 Quick Setup
+Download HotelRevAI.pbix
+Open in Power BI Desktop
+Refresh data connections
+Explore 5 dashboards with slicers
+👥 Team
+Mahesh Dodlla (Lead)
+Mahesh Babu
+Nandhini P
+Sri Tejasvi
+Harshita
+Shruti Jain
+Mentor: Selciya
+📄 License
+MIT License - see LICENSE © 2026 TeamA

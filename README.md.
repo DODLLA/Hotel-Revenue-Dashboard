@@ -1,18 +1,158 @@
-HotelRevAI - AI-Driven Revenue Analysis for Hotels
-HotelRevAI is a Power BI-based analytics dashboard that transforms raw hotel booking data into actionable revenue insights. Built by Infosys Springboard Batch 13 Group 2 Team A, it analyzes 3 years of historical data to optimize RevPAR, ADR, and occupancy while reducing cancellations through AI-driven Key Influencers and predictive analytics. Features 5 interactive dashboards covering Revenue Performance, Customer Segmentation, Operational Efficiency, Cancellation Intelligence, and overall performance.
+📋 Project Overview
+HotelRevAI is an AI-powered analytics solution developed as part of the Infosys Springboard Internship (Batch 13, 8-Week Duration). The hospitality industry has long relied on static, season-based pricing models and manual intuition to manage room inventory and revenue. This approach consistently leads to two critical failures: underpricing during peak demand periods (leaving money on the table) and overpricing during low-demand periods (leaving rooms empty).
 
-📋 Quick Setup
-Download HotelRevAI.pbix
-Open in Power BI Desktop
-Refresh data connections
-Explore 5 dashboards with slicers
-👥 Team
-Mahesh Dodlla (Lead)
-Mahesh Babu
-Nandhini P
-Sri Tejasvi
-Harshita
-Shruti Jain
-Mentor: Selciya
+HotelRevAI directly addresses these inefficiencies by building an intelligent, data-driven system that analyzes historical booking records, market behavior, and guest patterns to make smarter, faster, and more profitable decisions. By leveraging machine learning algorithms and interactive Power BI dashboards, the platform transitions hotel management from a reactive mindset to a proactive revenue maximization strategy — optimizing RevPAR (Revenue Per Available Room) while maintaining strong occupancy rates across both City and Resort hotel types.
+
+👥 Team Details
+Role	Name
+Mentor	Selciya
+Member 1	Dodlla Mahesh
+Member 2	Pilli Maheshbabu
+Member 3	Shruti Jain
+Member 4	Harshitha
+Member 5	Thejaswi
+Member 6	Nandhini
+Batch Number: 13
+Internship Duration: 8 Weeks
+Start Date: 02-02-2026
+🎯 Core Objectives
+The project is built around four high-impact goals, each targeting a specific gap in traditional hotel revenue management:
+
+Demand Forecasting — Leverages historical booking data and time-series predictive modeling to accurately forecast room demand across different seasons, local events, and market conditions. This allows hotel administrators to prepare staffing, inventory, and pricing well in advance of fluctuating demand periods.
+
+Dynamic Pricing Optimization — Implements intelligent algorithms that recommend real-time adjustments to room rates based on current occupancy levels, competitor pricing intelligence, and available inventory. The goal is to ensure the hotel always captures the maximum willingness-to-pay at any given point in time, directly driving up Average Daily Rate (ADR) and RevPAR.
+
+Cancellation Prediction — Develops classification models that assign a cancellation risk probability to each incoming booking based on factors like lead time, booking channel, guest type, and deposit status. This early warning system allows management to enforce strategic overbooking policies or launch targeted retention campaigns before revenue is lost.
+
+Customer Segmentation — Analyzes guest demographics, geographic origins, and behavioral patterns to identify distinct customer profiles. These segments enable personalized marketing campaigns, channel-specific offers, and tailored service experiences that increase both conversion rates and guest satisfaction.
+
+🛠️ Technology Stack
+Category	Tool / Technology
+BI & Visualization	Power BI Desktop, Power BI Service
+Data Transformation	Power Query
+Metric Calculation	DAX (Data Analysis Expressions)
+AI/ML Features	Key Influencer Visuals, Forecasting Visuals, Python in Power BI
+Version Control	Git & GitHub
+Why Power BI? Power BI was selected as the core platform due to its end-to-end capabilities — from data ingestion and transformation via Power Query, to complex metric calculation via DAX, to rich interactive visualization and AI-enhanced analytics. Its cloud-based sharing via Power BI Service enables seamless collaboration across Executive, Marketing, and Operations stakeholders without requiring any additional infrastructure.
+
+DAX (Data Analysis Expressions) was used extensively to build automated measures for critical KPIs including:
+
+Average Daily Rate (ADR)
+Revenue Per Available Room (RevPAR)
+Occupancy Percentage
+Realisation Percentage
+Year-over-Year (YoY) Revenue Growth
+Power Query handled all upstream data engineering tasks including null value treatment, duplicate removal, categorical encoding, and date standardization to ensure a clean, reliable single source of truth before any modeling or visualization was performed.
+
+🏗️ Data Architecture — Star Schema
+The backbone of HotelRevAI is a carefully engineered Star Schema data model, designed for both analytical performance and scalability.
+
+Fact Tables (Transactional Data):
+
+Fact_Bookings — Stores transaction-level booking records including guest type, room category, lead time, booking channel, meal plan, and stay duration.
+Fact_Daily_Revenue — Captures daily financial snapshots including ADR, RevPAR, total revenue, and occupancy figures for trend analysis.
+Dimension Tables (Descriptive Context):
+
+Dim_Date — A dedicated Calendar Table built to support rich temporal analysis across Day of Week, Month, Quarter, and Fiscal Year dimensions. This is essential for identifying seasonal patterns and weekday vs. weekend behavior.
+Dim_Customer — Contains guest demographic details including market segment, country of origin, guest type (Adult/Family), and repeat guest status.
+Dim_Room — Covers room type classifications, bed configurations, upgrade trends, and room-level revenue contributions.
+Dim_Hotel — Differentiates between City Hotels and Resort Hotels, enabling property-level performance comparisons.
+The Star Schema with 1-to-many relationships between dimension and fact tables reduced data redundancy, simplified DAX measure logic, and increased dashboard refresh speeds by 30% compared to a flat, denormalized data structure.
+
+📊 Dashboard Modules — 5 Interconnected Reports
+The HotelRevAI BI ecosystem consists of five purpose-built, cross-filtered dashboards. Each is designed for a specific stakeholder group and answers a specific business question — collectively moving decision-makers from "What happened?" to "Why did it happen?" and ultimately "What should we do next?"
+
+1. 📈 Executive Revenue Dashboard
+Focus: The Financial Big Picture
+
+This dashboard serves as the top-level financial command center for hotel executives and revenue managers. It provides a consolidated view of the organization's overall financial health across a multi-year horizon.
+
+What it shows:
+
+Total revenue tracking across a monitored period of $26 million over 3 years
+ADR (Average Daily Rate) trends over time, broken down by month and quarter
+Revenue contribution split between City Hotels and Resort Hotels
+Month-over-month and year-over-year revenue growth indicators
+The Takeaway: Leadership can immediately understand where the money is coming from, identify which property type is performing better, and spot revenue inflection points without digging through raw data.
+
+2. 👤 Customer-Based Analysis Dashboard
+Focus: Knowing the Guest
+
+Understanding who is booking — and through which channel — is fundamental to both marketing strategy and pricing decisions. This dashboard profiles the hotel's entire guest base with precision.
+
+What it shows:
+
+Market segment distribution: 82.8% OTA (Online Travel Agencies) vs. 11.2% Direct bookings, highlighting the heavy dependence on third-party channels
+Guest composition breakdown: 94.4% Adults vs. 5.1% Families, revealing a largely untapped family segment
+Geographic demand hotspots identifying top source markets (e.g., Portugal, France, Spain) for targeted regional campaigns
+Booking channel performance and contribution to overall revenue
+The Takeaway: Marketing teams can identify which geographies and guest types are most valuable, and reallocate campaign budgets toward channels and demographics with the highest net yield potential.
+
+3. ⚙️ Operational Efficiency & Behavior Dashboard
+Focus: Day-to-Day Optimization
+
+This dashboard is designed for operations managers who need to align resources — staffing, housekeeping, amenities — with actual demand patterns on a day-to-day basis.
+
+What it shows:
+
+Overall occupancy rates averaging 62.6% across the monitored period
+Clear weekday vs. weekend booking behavior patterns, revealing when demand spikes and dips
+Room type distribution and upgrade frequency trends
+Length-of-stay analysis and its correlation with ADR
+The Takeaway: Operations teams can make smarter staffing decisions, reduce idle-period overhead, and identify which room categories are consistently over- or under-utilized — all of which directly impact margins.
+
+4. ❌ Cancellation Insights Dashboard
+Focus: Combating the Revenue Killer
+
+Cancellations represent one of the most significant and preventable sources of revenue leakage in the hospitality industry. This dashboard dissects cancellation behavior with surgical precision.
+
+What it shows:
+
+Historical cancellation rate isolated at approximately 27.5% — a substantial portion of total bookings
+Cancellation rate breakdown by booking segment (OTA vs. Direct), confirming that OTA bookings cancel at a significantly higher rate
+Total revenue lost to cancellations over the monitored period
+Lead time analysis: how booking lead time correlates with cancellation probability, demonstrating that bookings made far in advance are exponentially more likely to be canceled
+The Takeaway: Revenue managers can pinpoint exactly when and why guests back out, enabling targeted policy interventions such as stricter deposit requirements for long-lead bookings, OTA-specific penalties, and proactive rebooking outreach.
+
+5. 🔮 Overall Performance & Forecast Dashboard
+Focus: The Strategic Roadmap
+
+This executive-level summary dashboard ties together all individual performance threads into a single unified scorecard, while also providing forward-looking projections to guide strategic planning.
+
+What it shows:
+
+A comprehensive KPI scorecard summarizing overall financial and operational health
+Year-over-Year (YoY) growth comparisons across all key metrics
+Forward-looking performance trend projections based on historical patterns
+Integrated forecasting visuals for booking pace and seasonal demand
+The Takeaway: Leadership receives a clear, one-page strategic summary that informs decisions for the upcoming fiscal quarter — from pricing strategy to marketing investment allocation.
+
+🗓️ 8-Week Project Timeline
+Week	Phase	Activities Completed
+Week 1	Data Foundation	Data sourcing from historical booking datasets; full ETL pipeline including null handling, duplicate removal, and categorical encoding via Power Query
+Week 2	Data Modeling	Defined Star Schema relationships; established primary and foreign key mappings between Fact and Dimension tables
+Week 3	Revenue Core	Developed all DAX measures for ADR, RevPAR, Occupancy %, and Realisation % with automated refresh logic
+Week 4	KPI Visualization	Built the primary Revenue and Occupancy trend dashboards with interactive slicers for property-level and time-based filtering
+Week 5	Guest Insights	Implemented full demographic segmentation across guest type, market segment, country of origin, and booking channel
+Week 6	Channel Analysis	Deep-dive analysis of OTA vs. Direct vs. GDS booking channel performance, commission impact, and net yield comparison
+Week 7	Forecasting	Developed predictive visuals for cancellation trend analysis and booking pace forecasting using Key Influencer and Time-Series visuals
+Week 8	Strategy Finalization	Final Dashboard UI/UX polish; developed insight-driven pricing recommendations and strategic advisory report
+💡 Key Strategic Insights & Recommendations
+The data-driven analysis surfaced four critical strategic opportunities for the hotel:
+
+1. Channel Mix Deficit Over 82% of total booking volume is funneled through third-party Online Travel Agencies (OTAs), which charge substantial commission fees on every transaction. This dramatically erodes net revenue margins. A targeted strategy to shift even 10% of OTA traffic to the hotel's own direct booking channels (website, loyalty programs, phone reservations) would yield significant margin recovery without requiring any increase in room rates or occupancy.
+
+2. The Lead Time Paradox Predictive analysis reveals a counterintuitive but powerful insight: bookings made with exceptionally long lead times (booked far in advance of the stay date) carry a disproportionately higher cancellation risk than last-minute bookings. Guests who plan far ahead are more likely to change their plans. The strategic recommendation is to contractually enforce non-refundable deposits or partial pre-payment requirements for long-horizon bookings, converting speculative reservations into secured revenue commitments.
+
+3. Underpenetrated Family Demographic Families with children or infants currently account for under 6% of total historical bookings — a remarkably low figure given that family travel represents a major and growing global travel segment. This gap presents a significant untapped revenue stream. Creating dedicated family-suite bundle packages (connecting rooms, meal plans, activity add-ons) and running targeted digital campaigns toward family demographics in top source markets could meaningfully grow this segment.
+
+4. Dynamic Peak-Season Optimization Occupancy data shows a surge of over 40% during the Q3 summer window compared to off-peak periods. Despite this dramatic demand spike, pricing does not appear to respond proportionally. Deploying automated, AI-driven premium-tier pricing exclusively during this high-demand window — calibrated to the market's price elasticity — would maximize ADR during the period when guests are least price-sensitive, directly boosting overall annual RevPAR without alienating off-peak guests.
+
+🏁 Conclusion
+The HotelRevAI project successfully transforms fragmented, raw booking data into a cohesive, interactive Business Intelligence ecosystem spanning five interconnected dashboards. By systematically addressing the hospitality industry's most persistent revenue challenges — static pricing, OTA over-dependence, cancellation exposure, and seasonal underpricing — the platform equips hotel stakeholders at every level with the real-time visibility and predictive intelligence they need to act decisively.
+
+The project demonstrates that the transition from intuition-driven to data-driven revenue management is not only achievable but measurable — with clear, quantified opportunities identified across channel mix, demand forecasting, guest segmentation, and dynamic pricing. HotelRevAI positions the organization to significantly recover lost revenue, reduce operational waste, and build a sustainable competitive advantage in an increasingly data-centric hospitality landscape.
+
+
 📄 License
 MIT License - see LICENSE © 2026 TeamA
